@@ -7,6 +7,28 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBox Text="Artist:" Margin="10,15,0,10" FontSize="14" TextAlignment="Center" IsReadOnly="True" 
+                     BorderThickness="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+            <TextBox Name="tbArtist" Margin="10,15,10,10" MinWidth="300" FontSize="14" IsReadOnly="True" 
+                     TextOptions.TextHintingMode="Animated" VerticalContentAlignment="Center"/>
+            <TextBox Text="Track:" Margin="10,15,0,10" FontSize="14" TextAlignment="Center" IsReadOnly="True" 
+                     BorderThickness="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+            <TextBox Name="tbTrack" Margin="10,15,10,10" MinWidth="300" VerticalContentAlignment="Center" FontSize="14" IsReadOnly="True"></TextBox>
+        </StackPanel>
+
+        <DataGrid Grid.Row="1" Name ="dataGrid"  HorizontalAlignment="Stretch"  Margin="10,15,10,15"
+                  VerticalAlignment="Stretch"  ItemsSource="{Binding}" SelectionChanged="DataGrid_SelectionChanged"/>
+
+        <Canvas Grid.Row="2">
+            <Button Name="btnOpen" Content="Open" Width="100" Height="26" Canvas.Left="10" Click="BtnOpen_Click" />
+        </Canvas>
+
     </Grid>
 </Window>
